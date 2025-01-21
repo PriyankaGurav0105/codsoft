@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { jobsData } from "../assets/assets";
 
 
 // Create the context
@@ -16,10 +17,21 @@ export const AppContextProvider = (props) => {
 
     const [isSearched, setIsSearched] = useState(false)
 
+    const [jobs, setJobs] = useState([])
+
+    //function to fetch jobs
+    const fetchJobs = async()=>{
+        setJobs(jobsData)
+    }
+
+    useEffect(()=>{
+        fetchJobs()
+    },[])
+
 
     const value = {
         // Define shared state or methods here
-        searchFilter, setSearchFilter, isSearched, setIsSearched
+        searchFilter, setSearchFilter, isSearched, setIsSearched, setJobs, jobs
     };
 
     return (
