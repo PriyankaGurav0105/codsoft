@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 /* eslint-disable no-unused-vars */
 import { useContext, useEffect, useState } from "react"
 import { AppContext } from "../context/AppContext"
@@ -131,7 +130,7 @@ const JobListing = () => {
                 </a>
                 {
                     Array.from({length: Math.ceil(filteredJobs.length / 6)}).map((_, index)=>(
-                        <a href="#job-list">
+                        <a key={index} href="#job-list">
                             <button onClick={()=> setCurrentPage(index + 1)} className={`w-10 h-10 items-center justify-center border border-gray-300 rounded ${currentPage === index + 1 ? 'bg-purple-100 text-purple-400' : 'text-gray-500'}`}>{index + 1}</button>
                         </a>
                     ))}

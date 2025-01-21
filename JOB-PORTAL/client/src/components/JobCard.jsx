@@ -1,7 +1,11 @@
 /* eslint-disable react/prop-types */
+import { useNavigate } from "react-router-dom"
 import { assets } from "../assets/assets"
 
 const JobCard = ({job}) => {
+
+  const navigate = useNavigate()
+
   return (
     <div className="border p-6 shadow rounded">
         <div className="flex justify-between items-center">
@@ -14,8 +18,8 @@ const JobCard = ({job}) => {
         </div>
         <p className="text-gray-500 text-sm mt-4" dangerouslySetInnerHTML={{__html:job.description.slice(0,150)}}></p>
         <div className="mt-4 flex gap-4 text-sm" >
-            <button className="bg-purple-700 text-white rounded py-2 px-4">Apply Now</button>
-            <button className="bg-gray-300 border border-gray-500 rounded px-4 py-2">Learn More</button>
+            <button onClick={()=> {navigate(`/apply-job/${job._id}`); scrollTo(0,0)}} className="bg-purple-700 text-white rounded py-2 px-4">Apply Now</button>
+            <button onClick={()=> {navigate(`/apply-job/${job._id}`); scrollTo(0,0)}} className="bg-gray-300 border border-gray-500 rounded px-4 py-2">Learn More</button>
         </div>
     </div>
   )
