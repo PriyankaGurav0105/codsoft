@@ -18,6 +18,7 @@ export const AppContextProvider = (props) => {
     const [isSearched, setIsSearched] = useState(false)
 
     const [jobs, setJobs] = useState([])
+    const [showRecruiterLogin, setShowRecruiterLogin ] = useState(false)
 
     //function to fetch jobs
     const fetchJobs = async()=>{
@@ -31,7 +32,7 @@ export const AppContextProvider = (props) => {
 
     const value = {
         // Define shared state or methods here
-        searchFilter, setSearchFilter, isSearched, setIsSearched, setJobs, jobs
+        searchFilter, setSearchFilter, isSearched, setIsSearched, setJobs, jobs, showRecruiterLogin, setShowRecruiterLogin
     };
 
     return (
